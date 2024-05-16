@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="container">
+        <aside class="left">
+            <header>
+                <h1>
+                    Discover New music
+                </h1>
+                <h3 class="topChart">Top chart</h3>
+                <div class="search-header">
+                    <input placeholder="Search" class="search-header__input" type="text" />
+                    <button class="search-header__button">
+                    <svg fill="none" viewBox="0 0 18 18" height="18" width="18" class="search-header__icon">
+                        <path fill="#3A3A3A" d="M7.132 0C3.197 0 0 3.124 0 6.97c0 3.844 3.197 6.969 7.132 6.969 1.557 0 2.995-.49 4.169-1.32L16.82 18 18 16.847l-5.454-5.342a6.846 6.846 0 0 0 1.718-4.536C14.264 3.124 11.067 0 7.132 0zm0 .82c3.48 0 6.293 2.748 6.293 6.15 0 3.4-2.813 6.149-6.293 6.149S.839 10.37.839 6.969C.839 3.568 3.651.82 7.132.82z"></path>
+                    </svg>
+                    </button>
+                </div>
+            </header>
+            <div class="contenedor">
+                <div class="album_grande" id="listarAlbum">
+                    
+                </div>
+                <div class="trackRecomendations">
+                    <h3 class="topChart">PlayList</h3>
+                    <div class="playlist" id = "listarPlayList">
+            
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside class="medium">
+            <h1 class="title">
+                Now-Playing
+            </h1>
+            <my-frame id="frame" uri ="spotify:track:6UtB0ezZwMneQIfLJ1Yzc1"></my-frame>
+        </aside>
+        <aside class="right">
+            <header>
+                <h1>
+                    Track List
+                </h1>
+                <div class="search-header">
+                    <input placeholder="Search" class="search-header__input" type="text" />
+                    <button class="search-header__button">
+                        <svg
+                        fill="none"
+                        viewBox="0 0 18 18"
+                        height="18"
+                        width="18"
+                        class="search-header__icon"
+                        >
+                        <path
+                        fill="#3A3A3A"
+                        d="M7.132 0C3.197 0 0 3.124 0 6.97c0 3.844 3.197 6.969 7.132 6.969 1.557 0 2.995-.49 4.169-1.32L16.82 18 18 16.847l-5.454-5.342a6.846 6.846 0 0 0 1.718-4.536C14.264 3.124 11.067 0 7.132 0zm0 .82c3.48 0 6.293 2.748 6.293 6.15 0 3.4-2.813 6.149-6.293 6.149S.839 10.37.839 6.969C.839 3.568 3.651.82 7.132.82z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+            </header>
+            
+            <div class="track_music">
+                
+            <div class="track_Recomendation" id = "listarTrack">
+                
+            </div>
+            </div>
+        </aside>
+        <footer class="menu__mobile">
+            <button onclick="mostrarColumna(1)">
+                <i class='bx bx-home-alt'></i>
+               
+            </button>
+            <button onclick="mostrarColumna(2)">
+                <i class='bx bx-album' ></i>
+    
+            </button>
+            <button onclick="mostrarColumna(3)">
+                <i class='bx bx-menu' ></i>
+    
+            </button>
+    
+        </footer>
+        <script class="script">
+            function ocultarTodasLasColumnas() {
+                var left = document.querySelectorAll('.left');
+                left.forEach(function(element) {
+                    element.style.display = 'none';
+                });
+                var medium = document.querySelectorAll('.medium');
+                medium.forEach(function(element) {
+                    element.style.display = 'none';
+                });
+                var right = document.querySelectorAll('.right');
+                right.forEach(function(element) {
+                    element.style.display = 'none';
+                });
+            }
+    
+            function mostrarColumna(columna) {
+                ocultarTodasLasColumnas();
+                var columnaClase;
+                if (columna === 1) {
+                    columnaClase = 'left';
+                } else if (columna === 2) {
+                    columnaClase = 'medium';
+                } else if (columna === 3) {
+                    columnaClase = 'right';
+                }
+                var columnaAMostrar = document.getElementsByClassName(columnaClase);
+                Array.from(columnaAMostrar).forEach(function(element) {
+                    element.style.display = 'flex';
+                });
+            }
+        </script>
+    </main>
+</body>
+</html>
