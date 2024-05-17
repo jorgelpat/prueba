@@ -276,3 +276,67 @@ try {
 } catch (error) {
     console.error(error);
 }
+
+
+
+
+
+
+// class Myframe extends HTMLElement {
+//     constructor() {
+//         super();
+//         this.attachShadow({ mode: "open" });
+//     }
+
+//     connectedCallback() {
+//         // Inicializar el iframe cuando el componente se agrega por primera vez al DOM
+//         this.updateIframe();
+//     }
+
+//     static get observedAttributes() {
+//         return ["uri"];
+//     }
+
+//     attributeChangedCallback(name, oldVal, newVal) {
+//         // Actualizar iframe cuando cambia el atributo 'uri'
+//         if (name === "uri" && oldVal !== newVal) {
+//             this.updateIframe();
+//         }
+//     }
+
+//     updateIframe() {
+//         // Extraer tipo e id de la URI
+//         const uri = this.getAttribute("uri");
+//         if (!uri) return;
+
+//         const [, type, id] = uri.split(":");
+//         this.type = type;
+//         this.id = id;
+
+//         // Determinar dimensiones del iframe según el tipo
+//         let width = "100%";
+//         let height = "100%";
+
+//         if (type === "track") {
+//             width = "70%";
+//             height = "400";
+//         } else if (type === "album") {
+//             width = "454";
+//             height = "690";
+//         }
+
+//         // Establecer el innerHTML para el shadow DOM
+//         this.shadowRoot.innerHTML = `
+//             <iframe class="spotify-iframe"
+//                 width="${width}"
+//                 height="${height}"
+//                 src="https://open.spotify.com/embed/${this.type}/${this.id}"
+//                 frameborder="0"
+//                 allowtransparency="true"
+//                 allow="encrypted-media">
+//             </iframe>
+//         `;
+//     }
+// }
+
+// customElements.define("my-frame", Myframe);
